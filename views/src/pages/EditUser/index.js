@@ -87,7 +87,7 @@ const EditUser=(props)=>{
                         helperText={formik.errors.userName}
                         fullWidth 
                         id="standard-basic" 
-                        label="User name" 
+                        label="User Name" 
                     />
                     <TextField 
                         name="firstName"
@@ -96,7 +96,7 @@ const EditUser=(props)=>{
                         helperText={formik.errors.firstName}
                         fullWidth 
                         id="standard-basic" 
-                        label="First name" 
+                        label="First Name" 
                     />
                     <TextField 
                         name="lastName"
@@ -105,7 +105,7 @@ const EditUser=(props)=>{
                         helperText={formik.errors.lastName}
                         fullWidth 
                         id="standard-basic" 
-                        label="Last name" 
+                        label="Last Name" 
                     />
                     <TextField 
                         name="email"
@@ -114,7 +114,7 @@ const EditUser=(props)=>{
                         helperText={formik.errors.email}
                         fullWidth 
                         id="standard-basic" 
-                        label="Email address" 
+                        label="Email Address" 
                     />
                     <TextField 
                         name="dateOfBirth"
@@ -123,7 +123,11 @@ const EditUser=(props)=>{
                         helperText={formik.errors.dateOfBirth}
                         fullWidth 
                         id="standard-basic" 
-                        label="Date of birth" 
+                        label="Date of Birth" 
+                        type="date"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
                     />
                     <TextField
                         name="password1"

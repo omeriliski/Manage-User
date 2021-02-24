@@ -50,8 +50,7 @@ function App() {
     .then(()=>{
       console.log("User added");
       console.log("data",data);
-      // getUsers();
-      // history.push('/');
+      getUsers();
     })
     .catch(err=>{
       console.log(err);

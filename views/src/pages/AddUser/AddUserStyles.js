@@ -7,5 +7,8 @@ export const useStyles = makeStyles((theme) => ({
    },
    button:{
       marginTop:"1rem",
+   },
+   date:{
+      marginTop:".9rem"
    }
 }));
