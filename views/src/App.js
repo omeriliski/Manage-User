@@ -12,7 +12,19 @@ export const Context=createContext();
 function App() {
   const [users,setUsers]=useState([]);
   const [currentUser, setCurrentUser]=useState();
-  const history=useHistory();
+
+  const [open, setOpen] = useState(false);
+  const [message,setMessage] = useState();
+  const [severity,setSeverity] = useState();
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
 
   const getUsers=()=>{
     axios.get("http://localhost:4000/api/get_users")
@@ -51,9 +63,11 @@ function App() {
       console.log("User added");
       console.log("data",data);
       getUsers();
+      return true
     })
     .catch(err=>{
       console.log(err);
+      return false;
     })
   }
   const updateUser=(data,id)=>{
@@ -81,7 +95,8 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Context.Provider value={{getUsers,users,deleteUser,addUser,updateUser,currentUser,setCurrentUser}}>
+      <Context.Provider value={{getUsers,users,deleteUser,addUser,updateUser,currentUser,setCurrentUser,
+      handleClose,open,handleClick,message,setMessage,severity,setSeverity}}>
         <Router>
           <Switch>
             <AddUser exact path="/add-user" component={AddUser}></AddUser>

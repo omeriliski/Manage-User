@@ -6,9 +6,10 @@ import { Button,TextField, Typography } from '@material-ui/core';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useHistory } from "react-router-dom";
+import SnackBar from '../../components/SnackBar';
 
-const AddUser=()=>{
-    
+const AddUser=()=>{    
+
     const consumer=useContext(Context)
     const classes = useStyles();
     let history = useHistory();
@@ -55,16 +56,31 @@ const AddUser=()=>{
                 .oneOf([Yup.ref('password1'), null], 'Passwords must match')
                 .required('Required')
         }),
-        onSubmit: () => {
-            consumer.addUser(formik.values);
-            console.log("Success");
-            history.push("/");
+        onSubmit: async() => {
+                const isUsed = consumer.users.filter((user)=>
+                    user.user_name==formik.values.userName
+                )
+                if(!isUsed.length==1){
+                    consumer.addUser(formik.values);
+                    console.log("Success");
+                    consumer.setMessage("Saved");
+                    consumer.setSeverity("success");
+                    await consumer.handleClick();
+                    history.push("/");
+                }
+                else {
+                    console.log("isUsed",isUsed)
+                    consumer.setMessage("This username is used.");
+                    consumer.setSeverity("error")
+                    consumer.handleClick();
+                }
         },
     });
 
     return(
         <Grid container spacing={3}>
             <Grid item xs={4} className={classes.formWrapper}>
+            <SnackBar/>
             <Typography >Add User</Typography>
                 <form className={classes.root} onSubmit={formik.handleSubmit} validationSchema autoComplete="off">
                     <TextField

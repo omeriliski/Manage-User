@@ -5,7 +5,7 @@ import {useStyles} from './HomePageStyles';
 import {Context} from '../../App';
 import { Button } from '@material-ui/core';
 import {useHistory} from 'react-router-dom';
-
+import SnackBar from '../../components/SnackBar';
 const HomePage=()=>{
     
     const consumer=useContext(Context)
@@ -17,6 +17,7 @@ const HomePage=()=>{
     }, [])
     return(
         <Grid container spacing={3}>
+            <SnackBar/>
             <Grid item xs={8} className={classes.wrapper}>
                 <Button 
                     className={classes.button} 

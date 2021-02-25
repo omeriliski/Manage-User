@@ -88,6 +88,9 @@ const EditUser=(props)=>{
                         fullWidth 
                         id="standard-basic" 
                         label="User Name" 
+                        InputProps={{
+                            readOnly: true,
+                          }}
                     />
                     <TextField 
                         name="firstName"
