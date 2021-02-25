@@ -63,11 +63,9 @@ function App() {
       console.log("User added");
       console.log("data",data);
       getUsers();
-      return true
     })
     .catch(err=>{
       console.log(err);
-      return false;
     })
   }
   const updateUser=(data,id)=>{
