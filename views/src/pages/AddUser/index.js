@@ -16,7 +16,7 @@ const AddUser=()=>{
 
     const formik = useFormik({
         initialValues: {
-            costumerNumber: "",
+            customerNumber: "",
             userName: "",
             firstName:"",
             lastName:"",
@@ -26,10 +26,10 @@ const AddUser=()=>{
             password2:""
         },
         validationSchema: Yup.object().shape({
-            costumerNumber:Yup.string()
+            customerNumber:Yup.number()
                 .required('Required')
-                .min(5,"Must be 5 digits")
-                .max(5,"Must be 5 digits"),
+                .min(10000,"Must be 5 digits")
+                .max(99999,"Must be 5 digits"),
             userName:Yup.string()
                 .required('Required')
                 .min(3,"Must be 3 digits")
@@ -60,9 +60,10 @@ const AddUser=()=>{
                 const isUsed = consumer.users.filter((user)=>
                     user.user_name==formik.values.userName
                 )
-                if(!isUsed.length==1){
+                if(isUsed.length==0){
                     consumer.addUser(formik.values);
                     console.log("Success");
+                    console.log("formik.values",formik.values);
                     consumer.setMessage("Saved");
                     consumer.setSeverity("success");
                     await consumer.handleClick();
@@ -84,13 +85,14 @@ const AddUser=()=>{
             <Typography >Add User</Typography>
                 <form className={classes.root} onSubmit={formik.handleSubmit} validationSchema autoComplete="off">
                     <TextField
-                        name="costumerNumber"
-                        value={formik.values.costumerNumber}
+                        name="customerNumber"
+                        value={formik.values.customerNumber}
                         onChange={formik.handleChange}
-                        helperText={formik.errors.costumerNumber} 
+                        helperText={formik.errors.customerNumber} 
                         fullWidth 
                         id="standard-basic" 
                         label="Customer Number"
+                        type="number"
                     />
                     <TextField 
                         name="userName"

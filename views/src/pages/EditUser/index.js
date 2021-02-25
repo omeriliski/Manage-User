@@ -15,7 +15,7 @@ const EditUser=(props)=>{
     console.log("props.location.state",props.location.state.data)
     const formik = useFormik({
         initialValues: {
-            costumerNumber: props.location.state.data.customer_number,
+            customerNumber: props.location.state.data.customer_number,
             userName: props.location.state.data.user_name,
             firstName:props.location.state.data.first_name,
             lastName:props.location.state.data.last_name,
@@ -25,10 +25,10 @@ const EditUser=(props)=>{
             password2:props.location.state.data.password
         },
         validationSchema: Yup.object().shape({
-            costumerNumber:Yup.string()
+            customerNumber:Yup.number()
                 .required('Required')
-                .min(5,"Must be 5 digits")
-                .max(5,"Must be 5 digits"),
+                .min(10000,"Must be 5 digits")
+                .max(99999,"Must be 5 digits"),
             userName:Yup.string()
                 .required('Required')
                 .min(3,"Must be 3 digits")
@@ -57,6 +57,9 @@ const EditUser=(props)=>{
         }),
         onSubmit: () => {
             consumer.updateUser(formik.values,props.location.state.data.id)
+            consumer.setMessage("Saved");
+            consumer.setSeverity("success");
+            consumer.handleClick();
             console.log("formik edit Page",formik.values);
             history.push('/');
         },
@@ -72,13 +75,14 @@ const EditUser=(props)=>{
             <Typography >Edit User</Typography>
                 <form className={classes.root} onSubmit={formik.handleSubmit} validationSchema autoComplete="off">
                     <TextField
-                        name="costumerNumber"
-                        value={formik.values.costumerNumber}
+                        name="customerNumber"
+                        value={formik.values.customerNumber}
                         onChange={formik.handleChange}
-                        helperText={formik.errors.costumerNumber} 
+                        helperText={formik.errors.customerNumber} 
                         fullWidth 
                         id="standard-basic" 
                         label="Customer Number"
+                        type="number"
                     />
                     <TextField 
                         name="userName"

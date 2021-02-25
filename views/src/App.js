@@ -41,6 +41,9 @@ function App() {
     axios.get(`http://localhost:4000/api/${id}/delete_user`)
     .then(()=>{
       console.log("deleted");
+      setMessage("Deleted");
+      setSeverity("success");
+      handleClick();
       getUsers();
     })
     .catch(err=>{
@@ -50,6 +53,7 @@ function App() {
 
   const addUser=(data)=>{
     axios.post("http://localhost:4000/api/add_user",{
+      customer_number:data.customerNumber,
       first_name:data.firstName,
       last_name:data.lastName,
       user_name:data.userName,
@@ -70,6 +74,7 @@ function App() {
   }
   const updateUser=(data,id)=>{
     axios.post(`http://localhost:4000/api/${id}/update_user`,{
+      customer_number:data.customerNumber,
       first_name:data.firstName,
       last_name:data.lastName,
       user_name:data.userName,

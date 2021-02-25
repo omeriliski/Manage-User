@@ -13,6 +13,7 @@ exports.get_users = async(req,res,next)=>{
 exports.add_user = async(req,res,next)=>{
     try {
         const newUser = await User.create({
+            customer_number:req.body.customer_number,
             first_name:req.body.first_name,
             last_name:req.body.last_name,
             user_name:req.body.user_name,
@@ -47,6 +48,7 @@ exports.update_user = async(req,res,next)=>{
                 id:req.params.id
             }
         });
+        user.customer_number=req.body.customer_number,
         user.first_name = req.body.first_name;
         user.last_name = req.body.last_name,
         user.user_name = req.body.user_name,
