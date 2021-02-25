@@ -18,7 +18,6 @@ sequelize.authenticate()
     console.log(err)
 })
 
-
 const User = sequelize.define(
     "users",
     {
