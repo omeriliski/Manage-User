@@ -11,7 +11,6 @@ export const EditButton = (props) => {
             style={{ marginLeft: 16 }}
             onClick={() => {
                 history.push({ pathname: "/edit-user",pathname: "/edit-user", state: { data:props.params.row} })
-                // consumer?.setCurrentUser(params.row)
             }}
         >
             Edit

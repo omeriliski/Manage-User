@@ -5,14 +5,13 @@ import HomePage from './pages/HomePage';
 import AddUser from './pages/AddUser';
 import axios from 'axios';
 import EditUser from './pages/EditUser';
-import {useHistory} from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 export const Context=createContext();
 
 function App() {
   const [users,setUsers]=useState([]);
   const [currentUser, setCurrentUser]=useState();
-
   const [open, setOpen] = useState(false);
   const [message,setMessage] = useState();
   const [severity,setSeverity] = useState();
@@ -100,6 +99,7 @@ function App() {
     <div className="App">
       <Context.Provider value={{getUsers,users,deleteUser,addUser,updateUser,currentUser,setCurrentUser,
       handleClose,open,handleClick,message,setMessage,severity,setSeverity}}>
+        <Navbar/>
         <Router>
           <Switch>
             <AddUser exact path="/add-user" component={AddUser}></AddUser>
