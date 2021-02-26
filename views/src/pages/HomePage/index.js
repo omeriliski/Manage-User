@@ -16,9 +16,9 @@ const HomePage=()=>{
         consumer.getUsers();
     }, [])
     return(
-        <Grid container spacing={3}>
+        <Grid container >
             <SnackBar/>
-            <Grid item xs={8} className={classes.wrapper}>
+            <Grid item xs={10} className={classes.wrapper}>
                 <Button 
                     className={classes.button} 
                     size="small" variant="contained" 

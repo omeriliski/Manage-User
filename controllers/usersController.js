@@ -35,9 +35,9 @@ exports.delete_user = async(req,res,next)=>{
                 id:req.params.id
             }
         })
-        res.send("user successfully deleted")
+        res.send("user successfully deleted");
     } catch (error) {
-        
+        console.log(error);
     }
 }
 

@@ -1,10 +1,8 @@
-import {useContext,useEffect} from 'react';
+import {useContext} from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import {useStyles} from './TableStyle';
 import Grid from '@material-ui/core/Grid';
 import { Context } from '../../App';
-import { Button,Link } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
 import { EditButton } from '../EditButton';
 import {DeleteButton} from '../DeleteButton';
 
@@ -12,11 +10,11 @@ let rows=[];
 export default function UsersTable() {
 
   const columns = [
-    { field: 'customer_number',width: 120 },
-    { field: 'user_name', type: 'string',width: 120 },
-    { field: 'first_name', type: 'string',width: 120 },
-    { field: 'last_name', type: 'string', width: 120 },
-    { field: 'last_login', type: 'dateTime', width: 120 },
+    { field: 'customer_number',width: 170 },
+    { field: 'user_name', type: 'string',width: 150 },
+    { field: 'first_name', type: 'string',width: 150 },
+    { field: 'last_name', type: 'string', width: 150 },
+    { field: 'last_login', type: 'dateTime', width: 150 },
     {
       field: 'Edit',
       width: 120,
@@ -46,7 +44,6 @@ export default function UsersTable() {
 
   const consumer = useContext(Context);
   const classes = useStyles();
-  const history = useHistory();
 
   rows = consumer?.users?.map(user=>{
     return({
@@ -64,8 +61,8 @@ export default function UsersTable() {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <div style={{ height: 500, width: '100%' }}>
-          <DataGrid sortModel={sortModel} rows={rows} columns={columns} />
+        <div style={{ height: "70vh", width: '100%' }}>
+          <DataGrid sortModel={sortModel} rows={rows} columns={columns}/>
         </div>
       </Grid>
     </Grid>
