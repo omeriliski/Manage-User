@@ -25,7 +25,7 @@ const HomePage=()=>{
                     color="primary"
                     onClick={()=>history.push("/add-user")}
                     >
-                    Add
+                    Add User
                 </Button>
                 <UsersTable/>
             </Grid>

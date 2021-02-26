@@ -10,11 +10,11 @@ let rows=[];
 export default function UsersTable() {
 
   const columns = [
-    { field: 'customer_number',width: 170 },
-    { field: 'user_name', type: 'string',width: 150 },
-    { field: 'first_name', type: 'string',width: 150 },
-    { field: 'last_name', type: 'string', width: 150 },
-    { field: 'last_login', type: 'dateTime', width: 150 },
+    { field: 'customer_number',headerName: 'Customer Number',width: 170 },
+    { field: 'user_name', headerName: 'User Name', type: 'string',width: 150 },
+    { field: 'first_name',headerName: 'First Name', type: 'string',width: 150 },
+    { field: 'last_name', headerName: 'Last Name',type: 'string', width: 150 },
+    { field: 'last_login', headerName: 'Last Login',type: 'dateTime', width: 150 },
     {
       field: 'Edit',
       width: 120,

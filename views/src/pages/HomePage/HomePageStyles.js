@@ -6,6 +6,8 @@ export const useStyles = makeStyles((theme) => ({
    },
    button:{
       marginBottom:"1rem",
-      float:"right"
+      float:"right",
+      background: 'linear-gradient(45deg, #81c784 30%, #a5d6a7 90%)',
+        color:"black",
    }
   }));

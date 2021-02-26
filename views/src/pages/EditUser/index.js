@@ -72,7 +72,7 @@ const EditUser=(props)=>{
         <Grid container spacing={3}>
             
             <Grid item xs={4} className={classes.formWrapper}>
-            <Typography >Edit User</Typography>
+            <Typography variant="h5">Edit User</Typography>
                 <form className={classes.root} onSubmit={formik.handleSubmit} validationSchema autoComplete="off">
                     <TextField
                         name="customerNumber"

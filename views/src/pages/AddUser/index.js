@@ -82,7 +82,7 @@ const AddUser=()=>{
         <Grid container spacing={3}>
             <Grid item xs={4} className={classes.formWrapper}>
             <SnackBar/>
-            <Typography >Add User</Typography>
+            <Typography variant="h5">Add User</Typography>
                 <form className={classes.root} onSubmit={formik.handleSubmit} validationSchema autoComplete="off">
                     <TextField
                         name="customerNumber"
