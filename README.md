@@ -9,15 +9,15 @@ create your database and a "users" table in Postgresql
 
 write your own datas in quotes
 
-  DB_USERNAME=""
+    DB_USERNAME=""
 
-  DB_PASSWORD=""
+    DB_PASSWORD=""
 
-  DB_HOSTNAME=""
+    DB_HOSTNAME=""
 
-  DB_PORT=""
+    DB_PORT=""
 
-  DB_NAME=""
+    DB_NAME=""
 
 ---------------------------------------------------
 intall dependencies with npm install
