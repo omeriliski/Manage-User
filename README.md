@@ -22,13 +22,15 @@ write your own datas in quotes
 ---------------------------------------------------
 intall dependencies with npm install
 
-start server: npm start
+start server: 
+        
+        npm start
 
 server works on: http://localhost:4000/
 
 
-start frontend: cd views 
-
-                npm start
+start frontend: 
+        cd views 
+        npm start
 
 users app works on: http://localhost:3000/
