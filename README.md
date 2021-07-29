@@ -24,13 +24,14 @@ intall dependencies with npm install
 
 start server: 
         
-        npm start
+    npm start
 
 server works on: http://localhost:4000/
 
 
 start frontend: 
-        cd views 
-        npm start
+       
+    cd views 
+    npm start
 
 users app works on: http://localhost:3000/
